@@ -1,0 +1,255 @@
+@font-face{
+	font-family: 'roboto';
+	src: url('font/Roboto-Light.ttf');
+}
+@font-face{
+	font-family: 'robotoBold';
+	src: url('font/Roboto-Bold.ttf');
+}
+@font-face{
+	font-family: 'robotoThin';
+	src: url('font/Roboto-Thin.ttf');
+}
+html, body, h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+body {
+	font-family: 'roboto';
+}
+#mainContainer {
+	top: 3em;
+	position:relative;
+	width: 100%;
+	height: 100%;
+}
+#quizContainer {
+	top:3em;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: right 200ms linear 200ms;
+	-moz-transition: right 200ms linear 200ms;
+	-ms-transition: right 200ms linear 200ms;
+	-o-transition: right 200ms linear 200ms;
+	transition: right 200ms linear 200ms;
+}
+.button {
+	cursor: pointer;
+	display: inline-block;
+}
+.fa.fa-question-circle.fa-2x {
+	line-height: 1em;
+}
+.fa.fa-arrow-circle-right.fa-4x {
+	color: #68A7E3;
+}
+.fa.fa-arrow-circle-right.fa-4x:hover {
+	color: #0267C8;
+}
+.fa.fa-check-circle.fa-4x {
+	color: #71DC95;
+}
+.fa.fa-check-circle.fa-4x:hover {
+	color: #16B84D;
+}
+#msgContainer {
+	height: 2em;
+	margin: 0.5em;
+	line-height: 1.5em;
+	display: block;
+}
+.hidden {
+	display: none;
+}
+.overlap {
+	display: block;
+	z-index: 10;
+	position: absolute;
+	background-color: #fff;
+}
+.quizLink {
+	display: inline-block;
+	font-family: 'robotoBold';
+	cursor: pointer;
+	/*color:#68A7E3;*/
+	color:#90C1F0;
+	font-size: 1.1em;
+}
+#quizContent {
+   	text-indent: 1em;
+}
+.questionNB {
+	font-size: 0.8em;
+	color: #999999;
+}
+.question {
+	border-bottom: 1px solid #ddd;
+	padding: 1em 0;
+	font-size: 2em;
+	color: #555;
+}
+.quizListItem {
+	padding: 1em;
+	border-bottom: 1px solid #ddd;
+}
+.quizListItem.flag {
+	background-color: #eee;
+}
+.progress {
+ 	color:#333;
+}
+.correctMsg {
+	color : #16B84D;
+}
+.wrongMsg {
+	color : #FF4040;
+}
+.msg {
+	font-family: 'robotoBold';
+}
+#topBar {
+	opacity: 0.7;
+	font-family: 'robotoBold';
+	position:fixed;
+   	top:0;
+   	left:0;
+   	width:100%;
+   	height:3em;
+  	/*background-color:#555;*/
+  	background-color:#333;
+	z-index: 20;
+}
+.appTitle {
+	font-size: 2.1em;
+	display: inline-block;
+	color:#ffffff;
+	line-height: 1em;
+	width: 4.5em;
+
+}
+.appTitle.list {
+	line-height: 1.5em;
+	text-indent: 0.4em;
+}
+.fa.fa-bars.fa-2x.backBtn{
+	cursor: pointer;
+	width: 1em;
+	color:#ffffff;
+	line-height: 1.5em;
+	text-indent: 0.3em;
+}
+.visible {
+	display: inline-block;
+}
+.hidden {
+	display: none;
+}
+.recapContainer {
+	padding:1em;
+}
+.recapText {
+	font-size: 2em;
+	color:#333;
+}
+.p1{
+	/*color:#D3B7DF;*/
+	color:#D48AD5;
+}
+.p2{
+	/*color:#B7DFD3;*/
+	color:#AAA9ED;
+}
+.p3{
+	/*color:#BBDFB7;*/
+	color:#B9E2BA;
+}
+.p4{
+	/*color:#DDDFB7;*/
+	color:#E7E79F;
+}
+.p5{
+	/*color:#DFB7B7;*/
+	color:#F79091;
+}
+.difficulty{
+	display: inline-block;
+	padding-right: 1em;
+	float: left;
+}
+.quizDifficulty {
+	width: 100%;
+	height: 2em;
+}
+.quizTitle.p1 {
+	background-color: #D48AD5;
+}
+.quizTitle.p2 {
+	background-color: #AAA9ED;
+}
+.quizTitle.p3 {
+	background-color: #B9E2BA;
+}
+.quizTitle.p4 {
+	background-color: #E7E79F;
+}
+.quizTitle.p5 {
+	background-color: #F79091;
+}
+.quizTitle {
+	font-family: 'robotoBold';
+	color:#fff;
+	/*color:#68A7E3;*/
+	font-size: 1.5em;
+	padding-left: 0.7em;
+	height: 2em;
+	line-height: 2em;
+}
+.proposition {
+	cursor: pointer;
+	padding: 1em 0;
+	border-bottom: 1px solid #ddd;
+	font-size: 1.2em;
+	color: #555;
+}
+.proposition.selected {
+	background-color: #A9CEF1;
+	color:#fff;
+	font-weight: bold;
+}
+.proposition.correct {
+	background-color: #4BDC7C;
+	color:#fff;
+	font-weight: bold;
+}
+.proposition.wrong {
+	background-color: #FF7070;
+	color:#fff;
+	font-weight: bold;
+}
+.progressContainer {
+	height: 1em;
+	width: 100%;
+	background-color: #eeeeee;
+	position: fixed;
+	bottom: 0;
+	/*border-bottom: 1px solid #ddd;*/
+}
+#progress {
+	color : #ffffff;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1em;
+	line-height: 1em;
+	height: 1em;
+	/*background-color: #ccc;*/
+	-webkit-transition: width 200ms linear 200ms;
+	-moz-transition: width 200ms linear 200ms;
+	-ms-transition: width 200ms linear 200ms;
+	-o-transition: width 200ms linear 200ms;
+	transition: width 200ms linear 200ms;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C1F6CA), color-stop(100%,#90ECA0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #C1F6CA 0%,#90ECA0 100%); /* Chrome10+,Safari5.1+ */
+}
+#logo {
+	color: #fff;
+	height: 3em;
+}
