@@ -19,6 +19,7 @@
 
         QuizPlayer.prototype.initializer = true;
 
+        
         QuizPlayer.prototype.load = function(quiz)
         {
             if(typeof(quiz) !== undefined) {
@@ -33,7 +34,7 @@
             that.displayQuiz();
         };
         QuizPlayer.prototype.show = function() {
-            that.mainContainer.className = "overlap";
+            that.mainContainer.className = "quizContainer overlap";
             that.backBtn.className = "fa fa-bars fa-2x backBtn visible";
         }
         QuizPlayer.prototype.displayQuiz = function() {
@@ -260,9 +261,11 @@
         }
         QuizPlayer.prototype.hide = function()
         { 
-            var width = that.mainContainer.innerWidth;
-            console.log(width);
-            that.mainContainer.style.right = -width;
+            that.mainContainer.className = "hidden";
+            var container = $('#quizContainer');
+            var width = $(window).width();
+            // console.log(width);
+            // container.css('right', -width);
         }
         QuizPlayer.prototype.setMainHandlers = function()
         {
@@ -280,11 +283,8 @@
             }, false);
 
             that.backBtn.addEventListener("click", function(event) {
-                // Core.go('QuizManager');
                 that.destroy();
                 Core.go('QuizManager');
-                Core.publish("QuizManager","displayQuizzes");
-
             }, false);
         };
         QuizPlayer.prototype.unsetHandlers = function()
@@ -298,9 +298,9 @@
             that.unsetHandlers();
             that.correctAnswers = 0;
             that.mainContainer.innerHTML = "";
-            // that.hide();
+            that.hide();
             // TODO : IMPLEMENT ANIMATIONS
-            that.mainContainer.className = "hidden";
+            
         };
     }
 

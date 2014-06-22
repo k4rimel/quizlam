@@ -22,17 +22,9 @@ QuizManagerController.prototype.loadQuizzes = function () {
 
 	view.render();
 };
-QuizManagerController.prototype.loadQuiz = function (id) {
-	var controller = new QuizController();
-	controller.loadQuiz(id);
-};
-
 Core.register('QuizManager', function()
 {
    var controller = new QuizManagerController();
-   Core.subscribe("displayQuizzes",function() {
-   		controller.loadQuizzes("QuizA", "QuizB","QuizC","QuizD","QuizE","QuizF","QuizG","QuizH");
-   });
    return controller;
 });
 

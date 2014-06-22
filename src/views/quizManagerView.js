@@ -56,12 +56,19 @@ QuizManagerView.prototype.setHandlers = function() {
 		quizzes[i].addEventListener("click", function(event) {
 			var quiz = that.model.getQuiz(event.target.attributes['data-quiz-id'].value);
 			that.launchQuiz(quiz);
+			// that.hide();
 		}, false);
 	}
 
 }
-QuizManagerView.prototype.launchQuiz = function(quiz) {
-	// core.start('QuizController', 'id');
 
+// QuizManagerView.prototype.hide = function() {
+//     var mainCont = $('#mainContainer');
+//     var width = $(window).width();
+//     mainCont.css('left', -width);
+//     mainCont.css('position', 'absolute');
+// };
+
+QuizManagerView.prototype.launchQuiz = function(quiz) {
 	Core.publish('quizPlayer', quiz);
 }
