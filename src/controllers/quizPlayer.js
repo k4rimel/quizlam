@@ -12,14 +12,14 @@
     that.currentQuestion    = null;
     that.correctAnswers     = 0;
     that.answered           = false;
-    
+
         /*TODO : HANDLE MCQ/UCQ (quiz type) */
         /*TODO : HANDLE TRANSITIONS*/
         if(QuizPlayer.prototype.initializer === true) return;
 
         QuizPlayer.prototype.initializer = true;
 
-        
+
         QuizPlayer.prototype.load = function(quiz)
         {
             if(typeof(quiz) !== undefined) {
@@ -260,7 +260,7 @@
             }
         }
         QuizPlayer.prototype.hide = function()
-        { 
+        {
             that.mainContainer.className = "hidden";
             var container = $('#quizContainer');
             var width = $(window).width();
@@ -283,7 +283,7 @@
             }, false);
 
             that.backBtn.addEventListener("click", function(event) {
-                that.destroy();
+                // that.destroy();
                 Core.go('QuizManager');
             }, false);
         };
@@ -295,12 +295,11 @@
         };
         QuizPlayer.prototype.destroy = function()
         {
+            console.log('DEBUG : destroyed');
             that.unsetHandlers();
             that.correctAnswers = 0;
             that.mainContainer.innerHTML = "";
             that.hide();
-            // TODO : IMPLEMENT ANIMATIONS
-            
         };
     }
 
@@ -308,7 +307,8 @@
 
 })(window);
 
-Core.subscribe('quizPlayer', function(quiz)
+Core.register('quizPlayer', function(quiz)
 {
     Player.load(quiz);
+    return Player;
 });

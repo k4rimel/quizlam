@@ -27,7 +27,7 @@ body {
   	/*background-color:#555;*/
   	background-color:#333;
 	/*z-index: 20;*/
-	
+
 }
 #mainContainer {
 	top: 3em;
@@ -41,7 +41,6 @@ body {
 	transition: left 500ms linear 500ms;
 }
 #quizContainer {
-	top:3em;
 	width: 100%;
 	height: 100%;
 }
@@ -58,24 +57,33 @@ body {
 	-o-transition: right 200ms linear 200ms;
 	transition: right 200ms linear 200ms;
 }
+.controls {
+	text-indent: 0em;
+	border: 1px solid #ddd;
+}
 .button {
+	width: 50%;
+	text-indent: 0em;
 	cursor: pointer;
 	display: inline-block;
+	text-align: center;
+} .button.submit {
+
 }
 .fa.fa-question-circle.fa-2x {
 	line-height: 1em;
 }
-.fa.fa-arrow-circle-right.fa-4x {
-	color: #68A7E3;
+.fa.fa-arrow-right.fa-4x {
+	color: #777;
 }
-.fa.fa-arrow-circle-right.fa-4x:hover {
-	color: #0267C8;
+.fa.fa-arrow-right.fa-4x:hover {
+	color: #aaa;
 }
-.fa.fa-check-circle.fa-4x {
-	color: #71DC95;
+.fa.fa-check.fa-4x {
+	color: #777;
 }
-.fa.fa-check-circle.fa-4x:hover {
-	color: #16B84D;
+.fa.fa-check.fa-4x:hover {
+	color: #aaa;
 }
 #msgContainer {
 	height: 2em;
@@ -110,6 +118,7 @@ body {
 .quizListItem {
 	padding: 1em;
 	border-bottom: 1px solid #ddd;
+	cursor: pointer;
 }
 .quizListItem.flag {
 	background-color: #eee;
@@ -208,7 +217,7 @@ body {
 	/*color:#68A7E3;*/
 	font-size: 1.5em;
 	padding-left: 0.7em;
-	height: 2em;
+	height: 7%;
 	line-height: 2em;
 }
 .proposition {
@@ -234,7 +243,7 @@ body {
 	font-weight: bold;
 }
 .progressContainer {
-	height: 1em;
+	height: 2%;
 	width: 100%;
 	background-color: #eeeeee;
 	position: fixed;
@@ -247,7 +256,7 @@ body {
 	font-weight: bold;
 	font-size: 1em;
 	line-height: 1em;
-	height: 1em;
+	height: 100%;
 	/*background-color: #ccc;*/
 	-webkit-transition: width 200ms linear 200ms;
 	-moz-transition: width 200ms linear 200ms;

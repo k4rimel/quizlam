@@ -51,14 +51,12 @@ QuizManagerView.prototype.render = function () {
 
 QuizManagerView.prototype.setHandlers = function() {
 	var that = this;
-	var quizzes = document.getElementsByClassName('quizLink');
-	for(var i = 0; i < quizzes.length; i++) {
-		quizzes[i].addEventListener("click", function(event) {
-			var quiz = that.model.getQuiz(event.target.attributes['data-quiz-id'].value);
-			that.launchQuiz(quiz);
-			// that.hide();
-		}, false);
-	}
+	$(".quizListItem").click(function(event) {
+		var quizId = $(this).children('.quizLink').attr('data-quiz-id');
+		var quiz  = that.model.getQuiz(quizId);
+
+		that.launchQuiz(quiz);
+	});
 
 }
 
@@ -70,5 +68,5 @@ QuizManagerView.prototype.setHandlers = function() {
 // };
 
 QuizManagerView.prototype.launchQuiz = function(quiz) {
-	Core.publish('quizPlayer', quiz);
+	Core.go('quizPlayer', quiz);
 }

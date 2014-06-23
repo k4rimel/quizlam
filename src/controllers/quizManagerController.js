@@ -22,6 +22,9 @@ QuizManagerController.prototype.loadQuizzes = function () {
 
 	view.render();
 };
+QuizManagerController.prototype.destroy = function () {
+	return;
+};
 Core.register('QuizManager', function()
 {
    var controller = new QuizManagerController();
