@@ -3,6 +3,7 @@
  */
 
 var QuizManagerController = function () {
+	this.container = $('#mainContainer');
 	return this;
 };
 

@@ -5,7 +5,9 @@
     function QuizPlayer()
     {
     var that                = this;
-    that.mainContainer      = document.getElementById("quizContainer");
+    that.container          = $("#quizContainer");
+
+    // that.container          = document.getElementById("quizContainer");
     that.questionContainer  = null;
     that.quiz               = [];
     that.currentIndex       = 0;
@@ -34,12 +36,22 @@
             that.displayQuiz();
         };
         QuizPlayer.prototype.show = function() {
-            that.mainContainer.className = "quizContainer overlap";
-            that.backBtn.className = "fa fa-bars fa-2x backBtn visible";
+            that.container.removeClass('hidden');
+            that.container.addClass('overlap');
+            console.log(that.backBtn.removeClass());
+            that.backBtn.removeClass('hidden');
+            that.backBtn.addClass('fa fa-bars fa-2x backBtn visible');
+
+
+
+            // that.container.className = "quizContainer overlap";
+            // that.backBtn.className = "fa fa-bars fa-2x backBtn visible";
         }
         QuizPlayer.prototype.displayQuiz = function() {
-            that.render(that.mainContainer, that.getQuizTemplate(), function() {
-                that.questionContainer = document.getElementById("questionContainer");
+            that.render(that.container, that.getQuizTemplate(), function() {
+                that.questionContainer = $("#questionContainer");
+
+                // that.questionContainer = document.getElementById("questionContainer");
                 that.displayQue();
                 that.setMainHandlers();
                 that.show();
@@ -47,7 +59,7 @@
         };
 
         QuizPlayer.prototype.displayRecapScreen = function() {
-            that.render(that.mainContainer, that.getRecapTemplate());
+            that.render(that.container, that.getRecapTemplate());
         }
         QuizPlayer.prototype.displayQue = function(target)
         {
@@ -58,7 +70,9 @@
         };
         QuizPlayer.prototype.render = function(target, data, cb)
         {
-            target.innerHTML = data;
+            target.html(data);
+
+            // target.innerHTML = data;
             if(typeof(cb) !== 'undefined') {
                 cb();
             }
@@ -261,31 +275,46 @@
         }
         QuizPlayer.prototype.hide = function()
         {
-            that.mainContainer.className = "hidden";
-            var container = $('#quizContainer');
-            var width = $(window).width();
-            // console.log(width);
-            // container.css('right', -width);
+            // that.container.className = "hidden";
+            // ADDCLASS
         }
         QuizPlayer.prototype.setMainHandlers = function()
         {
 
-            that.submitBtn = document.getElementById("submit");
-            that.nextBtn = document.getElementById("next");
-            that.backBtn = document.getElementById("backButton");
+            that.submitBtn = $("#submit");
+            that.nextBtn = $("#next");
+            that.backBtn = $("#backButton");
 
-            that.submitBtn.addEventListener("click", function(event) {
-                that.submitQue();
-            }, false);
 
-            that.nextBtn.addEventListener("click", function(event) {
-                that.next();
-            }, false);
+            that.submitBtn.click(function(event) {
+               that.submitQue();
+            });
 
-            that.backBtn.addEventListener("click", function(event) {
-                // that.destroy();
-                Core.go('QuizManager');
-            }, false);
+            that.nextBtn.click(function(event) {
+               that.next();
+            });
+
+            that.backBtn.click(function(event) {
+               Core.go('QuizManager');
+            });
+
+
+            // that.submitBtn = document.getElementById("submit");
+            // that.nextBtn = document.getElementById("next");
+            // that.backBtn = document.getElementById("backButton");
+
+            // that.submitBtn.addEventListener("click", function(event) {
+            //     that.submitQue();
+            // }, false);
+
+            // that.nextBtn.addEventListener("click", function(event) {
+            //     that.next();
+            // }, false);
+
+            // that.backBtn.addEventListener("click", function(event) {
+            //     // that.destroy();
+            //     Core.go('QuizManager');
+            // }, false);
         };
         QuizPlayer.prototype.unsetHandlers = function()
         {
@@ -295,11 +324,13 @@
         };
         QuizPlayer.prototype.destroy = function()
         {
-            console.log('DEBUG : destroyed');
             that.unsetHandlers();
             that.correctAnswers = 0;
-            that.mainContainer.innerHTML = "";
-            that.hide();
+            that.container.empty();
+
+            // that.container.innerHTML = "";
+
+            // that.hide();
         };
     }
 
