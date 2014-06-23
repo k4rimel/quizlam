@@ -43,7 +43,6 @@
             that.backBtn.addClass('fa fa-bars fa-2x backBtn visible');
 
 
-
             // that.container.className = "quizContainer overlap";
             // that.backBtn.className = "fa fa-bars fa-2x backBtn visible";
         }
@@ -299,6 +298,7 @@
             });
 
 
+            // VANILLA JS
             // that.submitBtn = document.getElementById("submit");
             // that.nextBtn = document.getElementById("next");
             // that.backBtn = document.getElementById("backButton");
@@ -320,7 +320,9 @@
         {
             that.submitBtn = null;
             that.nextBtn = null;
-            that.backBtn.className = "fa fa-bars fa-2x backBtn hidden";
+            that.backBtn.removeClass('visible');
+            that.backBtn.addClass('hidden');
+            // that.backBtn.className = "fa fa-bars fa-2x backBtn hidden";
         };
         QuizPlayer.prototype.destroy = function()
         {
