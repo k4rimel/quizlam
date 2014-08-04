@@ -1,11 +1,11 @@
-var QuizManagerView = function ( model ) {
+var ThemeManagerView = function ( model ) {
 	var that = this;
 	that.model = model;
 
 	return that;
 };
 
-QuizManagerView.prototype.output = function () {
+ThemeManagerView.prototype.output = function () {
 	var instance = this;
 	var modelData = instance.model;
 	var htmlData;
@@ -15,7 +15,7 @@ QuizManagerView.prototype.output = function () {
 
 	$.ajax({
   		type: 'GET',
-  		url: 'src/views/html/manager.html',
+  		url: 'src/views/html/themes.html',
   		dataType: 'html',
   		async: false,
   		success: function(data){
@@ -31,7 +31,7 @@ QuizManagerView.prototype.output = function () {
 	return html;
 };
 
-QuizManagerView.prototype.render = function () {
+ThemeManagerView.prototype.render = function () {
 	var outputValue = this.output();
 	var container = $(".mainContainer");
 	container.html(outputValue);
@@ -40,16 +40,14 @@ QuizManagerView.prototype.render = function () {
 	container.addClass('center transition');
 };
 
-QuizManagerView.prototype.setHandlers = function() {
+ThemeManagerView.prototype.setHandlers = function() {
 	var that = this;
-	$(".quizListItem").click(function(event) {
-		var quizId = $(this).children('.quiz').children('.quizLink').attr('data-quiz-id');
-		var quiz  = that.model.getQuiz(quizId);
-		that.launchQuiz(quiz);
-		
+	$(".themeListItem").click(function(event) {
+		var quizzes = $(this).attr('data-quizzes');
+		that.displayQuizzes(quizzes);
 	});
 
 }
-QuizManagerView.prototype.launchQuiz = function(quiz) {
-	Core.go('quizPlayer', quiz);
+ThemeManagerView.prototype.displayQuizzes = function(quizzes) {
+	Core.go('QuizManager', quizzes);
 }

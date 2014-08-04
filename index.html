@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="lib/vendor/jquery.js"></script> -->
 	<script type="text/javascript" src="lib/vendor/doT.js"></script>
 	<script type="text/javascript" src="lib/vendor/zepto.min.js"></script>
+	<script type="text/javascript" src="lib/vendor/zepto-touch.min.js"></script>
 	<script type="text/javascript" src="lib/core.js"></script>
 	<script type="text/javascript" src="lib/utils.js"></script>
 
@@ -20,14 +21,17 @@
 	<!-- CONTROLLERS -->
 	<script type="text/javascript" src="src/controllers/baseController.js"></script>
 	<script type="text/javascript" src="src/controllers/quizManagerController.js"></script>
+	<script type="text/javascript" src="src/controllers/themeManagerController.js"></script>
 
 	<!-- MODELS -->
 	<script type="text/javascript" src="src/models/baseModel.js"></script>
+	<script type="text/javascript" src="src/models/themeModel.js"></script>
 	<script type="text/javascript" src="src/models/managerModel.js"></script>
 
 	<!-- VIEWS -->
 	<script type="text/javascript" src="src/views/baseView.js"></script>
 	<script type="text/javascript" src="src/views/quizManagerView.js"></script>
+	<script type="text/javascript" src="src/views/themeManagerView.js"></script>
 
 
 	<title>Quizlam</title>
@@ -45,20 +49,16 @@
 			<path id="logo" d="M235.276 404.724c105.886 105.848 266.264 123.839 390.774 54.118-14.369 25.604-32.322 49.714-54.118 71.511-127.646 127.646-334.603 127.646-462.248 0-127.646-127.683-127.646-334.64 0-462.286 21.798-21.797 45.871-39.749 71.511-54.118-69.757 124.511-51.729 284.888 54.082 390.774z"></path>
 		</svg>
 	</div>
-	<div id="mainContainer"></div>
-	<div id="quizContainer" class="hidden"></div>
+	<div class="mainContainer"></div>
+	<div class="quizContainer"></div>
 	<script>
 		document.onreadystatechange = function () {
 		  	var state = document.readyState;
 			if (state == 'complete') {
 		      // core.bootstrapper();
 		      // Core.start("QuizManager");
-		      Core.start('QuizManager');
-
-
-
-
-
+		      Core.go('QuizManager');
+		      // Core.go('ThemeManager');
 		  	}
 		}
 	</script>

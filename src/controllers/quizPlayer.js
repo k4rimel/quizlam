@@ -5,7 +5,7 @@
     function QuizPlayer()
     {
     var that                = this;
-    that.container          = $("#quizContainer");
+    that.container          = $(".quizContainer");
 
     // that.container          = document.getElementById("quizContainer");
     that.questionContainer  = null;
@@ -14,13 +14,12 @@
     that.currentQuestion    = null;
     that.correctAnswers     = 0;
     that.answered           = false;
+    that.transition         = 'right';
 
         /*TODO : HANDLE MCQ/UCQ (quiz type) */
-        /*TODO : HANDLE TRANSITIONS*/
         if(QuizPlayer.prototype.initializer === true) return;
 
         QuizPlayer.prototype.initializer = true;
-
 
         QuizPlayer.prototype.load = function(quiz)
         {
@@ -35,25 +34,24 @@
             that.currentQuestion = that.quiz.Questions[that.currentIndex];
             that.displayQuiz();
         };
+        QuizPlayer.prototype.hide = function()
+        {
+            var width = $(window).width();
+            that.container.removeClass('center');
+            that.container.removeClass('transition');
+            that.container.addClass('right');
+        }
         QuizPlayer.prototype.show = function() {
-            that.container.removeClass('hidden');
-            that.container.addClass('overlap');
-            console.log(that.backBtn.removeClass());
             that.backBtn.removeClass('hidden');
             that.backBtn.addClass('fa fa-bars fa-2x backBtn visible');
-
-
-            // that.container.className = "quizContainer overlap";
-            // that.backBtn.className = "fa fa-bars fa-2x backBtn visible";
+            that.container.removeClass('right');
+            that.container.addClass('center transition');
         }
         QuizPlayer.prototype.displayQuiz = function() {
             that.render(that.container, that.getQuizTemplate(), function() {
                 that.questionContainer = $("#questionContainer");
-
-                // that.questionContainer = document.getElementById("questionContainer");
                 that.displayQue();
                 that.setMainHandlers();
-                that.show();
             });
         };
 
@@ -272,11 +270,6 @@
                 }, false);
             }
         }
-        QuizPlayer.prototype.hide = function()
-        {
-            // that.container.className = "hidden";
-            // ADDCLASS
-        }
         QuizPlayer.prototype.setMainHandlers = function()
         {
 
@@ -288,33 +281,14 @@
             that.submitBtn.click(function(event) {
                that.submitQue();
             });
-
             that.nextBtn.click(function(event) {
                that.next();
-            });
-
+            });          
             that.backBtn.click(function(event) {
                Core.go('QuizManager');
             });
-
-
-            // VANILLA JS
-            // that.submitBtn = document.getElementById("submit");
-            // that.nextBtn = document.getElementById("next");
-            // that.backBtn = document.getElementById("backButton");
-
-            // that.submitBtn.addEventListener("click", function(event) {
-            //     that.submitQue();
-            // }, false);
-
-            // that.nextBtn.addEventListener("click", function(event) {
-            //     that.next();
-            // }, false);
-
-            // that.backBtn.addEventListener("click", function(event) {
-            //     // that.destroy();
-            //     Core.go('QuizManager');
-            // }, false);
+            that.show();
+            that.container.css('left', 0);
         };
         QuizPlayer.prototype.unsetHandlers = function()
         {
@@ -322,17 +296,13 @@
             that.nextBtn = null;
             that.backBtn.removeClass('visible');
             that.backBtn.addClass('hidden');
-            // that.backBtn.className = "fa fa-bars fa-2x backBtn hidden";
         };
         QuizPlayer.prototype.destroy = function()
         {
             that.unsetHandlers();
             that.correctAnswers = 0;
             that.container.empty();
-
-            // that.container.innerHTML = "";
-
-            // that.hide();
+            that.hide();
         };
     }
 
