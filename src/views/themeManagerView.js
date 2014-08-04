@@ -43,7 +43,7 @@ ThemeManagerView.prototype.render = function () {
 ThemeManagerView.prototype.setHandlers = function() {
 	var that = this;
 	$(".themeListItem").click(function(event) {
-		var quizzes = $(this).attr('data-quizzes');
+		var quizzes = $(this).attr('data-quizzes').split(",");
 		that.displayQuizzes(quizzes);
 	});
 

@@ -8,10 +8,11 @@ var QuizManagerController = function () {
 // QuizManagerController.prototype.initializer = true;
 
 QuizManagerController.prototype.init = function () {
-	var that = this;
-	if(typeof(arguments[0]) !== 'undefined') {
-		that.loadQuizzes.apply(that, arguments[0]);
+	if(typeof(arguments[0]) !== undefined) {
+		console.log(arguments[0]);
 	}
+	var that = this;
+	that.loadQuizzes("QuizA", "QuizB","QuizC","QuizD","QuizE","QuizF","QuizG","QuizH");
 };
 
 QuizManagerController.prototype.loadQuizzes = function () {
